@@ -36,7 +36,7 @@ public class Principal {
 			switch (opcion) {
 			case 1:
 				System.out.println("=== Reclutar Nuevo Heroe ===");
-			
+			añadirNuevoHeroe(heroes);
 				break;
 			case 2:
 				System.out.println("=== Consultar Linaje ===");
@@ -55,6 +55,12 @@ public class Principal {
 			}
 		} while (!salir);
 
+	}
+
+	private static void añadirNuevoHeroe(ArrayList<Heroe> heroes) {
+		Heroe nuevoHeroe = new Heroe();
+		nuevoHeroe.pedirDatos(heroes);
+		heroes.add(nuevoHeroe);
 	}
 
 }
