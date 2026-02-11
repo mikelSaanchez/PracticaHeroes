@@ -9,7 +9,7 @@ public class Heroe {
 	private String nombre;
 	private String linaje;
 	private String[] habilidades = new String[4];
-	private int numAtaques;
+	private int numHabilidades;
 
 	public void pedirDatos(ArrayList<Heroe> heroes) {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
@@ -40,7 +40,6 @@ public class Heroe {
 				System.out.println("Introduce el linaje: ");
 				linaje = leer.readLine();
 
-
 				datosOK = true;
 			} catch (IOException e) {
 				System.out.println("Has introducido mal algún dato, crack");
@@ -65,5 +64,20 @@ public class Heroe {
 	public int getId() {
 		return id;
 	}
+	
+	public void mostrarDatos() {
+		
+		System.out.println("Id: "+id);
+		System.out.println("-------------");
+		System.out.println("Nombre: "+ nombre);
+		System.out.println("Linaje: "+linaje);
+		
+		for(int i = 0; i < numHabilidades ; i ++) {
+		System.out.println(habilidades[i]+ " ,");
+		}
+		
+		
+	}
+	
 
 }
