@@ -45,7 +45,7 @@ public class Principal {
 				break;
 			case 3:
 				System.out.println("=== Enseñar Nueva Habilidad ===");
-
+				enseñarHabilidad(heroes);
 				break;
 			case 4:
 				System.out.println("¡Saliendo del Olympo!");
@@ -69,12 +69,13 @@ public class Principal {
 		boolean enc = false;
 		for (Heroe heroeAMostrar : heroes) {
 			if (heroeAMostrar.getId() == idBuscar) {
-				heroeAMostrar.mostrarDatos();;
+				heroeAMostrar.mostrarDatos();
+				;
 				enc = true;
 			}
 		}
 		if (!enc) {
-			System.out.println("No se ha encontrado la factura");
+			System.out.println("No se ha el heroe.");
 		}
 	}
 
@@ -92,5 +93,22 @@ public class Principal {
 			}
 		}
 		return idABuscar;
+	}
+
+	private static void enseñarHabilidad(ArrayList<Heroe> heroes) throws IOException {
+		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+		int idBuscar = pedirID();
+
+		for (Heroe heroeAñdirHabilidad : heroes) {
+			if (heroeAñdirHabilidad.getId() == idBuscar) {
+
+				System.out.println("Introduce el nombre del nuevo ataque de: " + heroeAñdirHabilidad.getNombre());
+				String nuevoAtaque = leer.readLine();
+
+				if (heroeAñdirHabilidad.enseñarHabilidad(nuevoAtaque)) {
+					System.out.println(heroeAñdirHabilidad.getNombre() + " ha aprendido " + nuevoAtaque);
+				}
+			}
+		}
 	}
 }

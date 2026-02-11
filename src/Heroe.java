@@ -8,7 +8,7 @@ public class Heroe {
 	private int id;
 	private String nombre;
 	private String linaje;
-	private String[] habilidades = new String[4];
+	private String[] habilidades = new String[5];
 	private int numHabilidades;
 
 	public void pedirDatos(ArrayList<Heroe> heroes) {
@@ -64,20 +64,38 @@ public class Heroe {
 	public int getId() {
 		return id;
 	}
-	
+
 	public void mostrarDatos() {
-		
-		System.out.println("Id: "+id);
+
+		System.out.println("Id: " + id);
 		System.out.println("-------------");
-		System.out.println("Nombre: "+ nombre);
-		System.out.println("Linaje: "+linaje);
-		
-		for(int i = 0; i < numHabilidades ; i ++) {
-		System.out.println(habilidades[i]+ " ,");
+		System.out.println("Nombre: " + nombre);
+		System.out.println("Linaje: " + linaje);
+
+		for (int i = 0; i < numHabilidades; i++) {
+			System.out.println("Habilidades: " + habilidades[i] + " ,");
 		}
-		
-		
+
 	}
-	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public boolean enseñarHabilidad(String habilidad) {
+
+		if (numHabilidades < 5) {
+
+			habilidades[numHabilidades] = habilidad;
+			numHabilidades++;
+
+			return true;
+
+		} else {
+
+			return false;
+		}
+
+	}
 
 }
