@@ -50,8 +50,8 @@ public class Dios {
 	}
 
 	private boolean estaRepetido(ArrayList<Dios> heroes, int idHeroe) {
-		//Preferir código legible frente a código ingenioso: 
-		//Podriamos hacer un metodo mas complejo para comprobar que el ID esta repetido
+		// Preferir código legible frente a código ingenioso:
+		// Podriamos hacer un metodo mas complejo para comprobar que el ID esta repetido
 		for (int i = 0; i < (heroes.size()); i++) {
 			if (heroes.get(i).getId() == idHeroe) {
 				System.err.println("El ID esta repetido. Introduce otro");
