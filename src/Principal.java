@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Principal {
 
 	public static void main(String[] args) throws IOException {
-
+		//Usar nombres que se puedan pronunciar:
 		// Se ha aplicado en todo el documento la regla de nombres con sentido y que se
 		// puedan pronunciar.
 
@@ -26,6 +26,7 @@ public class Principal {
 			int opcion = -1;
 			boolean datosOK = false;
 			while (!datosOK) {
+				//Excepciones en lugar de códigos de error.
 				try {
 					opcion = Integer.parseInt(leer.readLine());
 					datosOK = true;
@@ -33,7 +34,8 @@ public class Principal {
 					System.err.println("Solo puedes introducir números");
 				}
 			}
-
+			//Instrucciones switch: 
+			//Se llama a los metodos para que no quede todo el codigo en cada caso y se vea mas limpio
 			switch (opcion) {
 			case 1:
 				System.out.println("=== Reclutar Nuevo Heroe ===");
@@ -57,7 +59,8 @@ public class Principal {
 		} while (!salir);
 
 	}
-
+	//Argumentos de funciones:
+	// El nombre de los metodos dicen lo que hacen
 	private static void añadirNuevoDios(ArrayList<Dios> dioses) {
 		Dios nuevoHeroe = new Dios();
 		nuevoHeroe.pedirDatos(dioses);
@@ -65,12 +68,14 @@ public class Principal {
 	}
 
 	private static void mostrarDios(ArrayList<Dios> dioses) throws IOException {
+		//Evitar valores mágicos:
+		//Todas las variables tienen un valor.
 		int idBuscar = pedirID();
 		boolean enc = false;
 		for (Dios heroeAMostrar : dioses) {
 			if (heroeAMostrar.getId() == idBuscar) {
 				heroeAMostrar.mostrarDatos();
-				;
+	
 				enc = true;
 			}
 		}
@@ -81,6 +86,8 @@ public class Principal {
 
 	public static int pedirID() throws IOException {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
+		//Reducir el alcance de las variables:
+		//Mueren en el mismo metodo, aun que se utilizen en mas de ellos, para evitar confusiones.
 		boolean datosOK = false;
 		int idABuscar = -1;
 		while (!datosOK) {
