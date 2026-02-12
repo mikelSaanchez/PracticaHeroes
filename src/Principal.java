@@ -7,8 +7,10 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException {
 		//Usar nombres que se puedan pronunciar:
-		// Se ha aplicado en todo el documento la regla de nombres con sentido y que se
-		// puedan pronunciar.
+		// Se ha aplicado en todo el documento la regla de nombres que se puedan pronunciar.
+		
+		//Usar nombres que revelen las intenciones:
+		//Se ha aplicado en todo el documento la regla de valores que digan lo que son.
 
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 
@@ -80,7 +82,7 @@ public class Principal {
 			}
 		}
 		if (!enc) {
-			System.out.println("No se ha el heroe.");
+			System.out.println("No se ha encontrado el dios.");
 		}
 	}
 
@@ -92,7 +94,7 @@ public class Principal {
 		int idABuscar = -1;
 		while (!datosOK) {
 			try {
-				System.out.println("Introduce el ID del heroe : ");
+				System.out.println("Introduce el ID del dios : ");
 				idABuscar = Integer.parseInt(leer.readLine());
 				datosOK = true;
 			} catch (NumberFormatException | IOException e) {
@@ -105,17 +107,20 @@ public class Principal {
 	private static void enseñarHabilidad(ArrayList<Dios> dioses) throws IOException {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 		int idBuscar = pedirID();
-
+		boolean enc = false;
 		for (Dios diosAñdirHabilidad : dioses) {
 			if (diosAñdirHabilidad.getId() == idBuscar) {
 
 				System.out.println("Introduce el nombre del nuevo ataque de: " + diosAñdirHabilidad.getNombre());
 				String nuevoAtaque = leer.readLine();
-
+				enc = true;
 				if (diosAñdirHabilidad.enseñarHabilidad(nuevoAtaque)) {
 					System.out.println(diosAñdirHabilidad.getNombre() + " ha aprendido " + nuevoAtaque);
 				}
 			}
+		}
+		if (!enc) {
+			System.out.println("No se ha encontrado el dios.");
 		}
 	}
 }
