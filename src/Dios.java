@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Heroe {
+public class Dios {
 
 	private int id;
 	private String nombre;
@@ -11,23 +11,23 @@ public class Heroe {
 	private String[] habilidades = new String[5];
 	private int numHabilidades;
 
-	public void pedirDatos(ArrayList<Heroe> heroes) {
+	public void pedirDatos(ArrayList<Dios> heroes) {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 
-		int idHeroe = -1;
+		int idDios = -1;
 		do {
 			try {
 				System.out.println("Introduce el número del heroe que quiera añadir(1-100): ");
-				idHeroe = Integer.parseInt(leer.readLine());
-				if (idHeroe < 1 || idHeroe > 100)
+				idDios = Integer.parseInt(leer.readLine());
+				if (idDios < 1 || idDios > 100)
 					System.out.println("El numero tiene que ser entre 1 y 100");
 			} catch (NumberFormatException | IOException e) {
 				System.out.println("Intoduce solo numeros");
-				idHeroe = -1;
+				idDios = -1;
 			}
-		} while (estaRepetido(heroes, idHeroe) || idHeroe < 1 || idHeroe > 100);
-		System.out.println("Asignado el id " + idHeroe);
-		id = idHeroe;
+		} while (estaRepetido(heroes, idDios) || idDios < 1 || idDios > 100);
+		System.out.println("Asignado el id " + idDios);
+		id = idDios;
 
 		boolean datosOK = false;
 		while (!datosOK) {
@@ -49,7 +49,7 @@ public class Heroe {
 		}
 	}
 
-	private boolean estaRepetido(ArrayList<Heroe> heroes, int idHeroe) {
+	private boolean estaRepetido(ArrayList<Dios> heroes, int idHeroe) {
 		for (int i = 0; i < (heroes.size()); i++) {
 			if (heroes.get(i).getId() == idHeroe) {
 				System.err.println("El ID esta repetido. Introduce otro");

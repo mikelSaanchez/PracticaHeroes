@@ -12,7 +12,7 @@ public class Principal {
 
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 
-		ArrayList<Heroe> heroes = new ArrayList<Heroe>();
+		ArrayList<Dios> dioses = new ArrayList<Dios>();
 
 		boolean salir = false;
 		do {
@@ -37,15 +37,15 @@ public class Principal {
 			switch (opcion) {
 			case 1:
 				System.out.println("=== Reclutar Nuevo Heroe ===");
-				añadirNuevoHeroe(heroes);
+				añadirNuevoDios(dioses);
 				break;
 			case 2:
 				System.out.println("=== Mostrar Dioses por Id ===");
-				mostrarHeroes(heroes);
+				mostrarDios(dioses);
 				break;
 			case 3:
 				System.out.println("=== Enseñar Nueva Habilidad ===");
-				enseñarHabilidad(heroes);
+				enseñarHabilidad(dioses);
 				break;
 			case 4:
 				System.out.println("¡Saliendo del Olympo!");
@@ -58,16 +58,16 @@ public class Principal {
 
 	}
 
-	private static void añadirNuevoHeroe(ArrayList<Heroe> heroes) {
-		Heroe nuevoHeroe = new Heroe();
-		nuevoHeroe.pedirDatos(heroes);
-		heroes.add(nuevoHeroe);
+	private static void añadirNuevoDios(ArrayList<Dios> dioses) {
+		Dios nuevoHeroe = new Dios();
+		nuevoHeroe.pedirDatos(dioses);
+		dioses.add(nuevoHeroe);
 	}
 
-	private static void mostrarHeroes(ArrayList<Heroe> heroes) throws IOException {
+	private static void mostrarDios(ArrayList<Dios> dioses) throws IOException {
 		int idBuscar = pedirID();
 		boolean enc = false;
-		for (Heroe heroeAMostrar : heroes) {
+		for (Dios heroeAMostrar : dioses) {
 			if (heroeAMostrar.getId() == idBuscar) {
 				heroeAMostrar.mostrarDatos();
 				;
@@ -95,18 +95,18 @@ public class Principal {
 		return idABuscar;
 	}
 
-	private static void enseñarHabilidad(ArrayList<Heroe> heroes) throws IOException {
+	private static void enseñarHabilidad(ArrayList<Dios> dioses) throws IOException {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 		int idBuscar = pedirID();
 
-		for (Heroe heroeAñdirHabilidad : heroes) {
-			if (heroeAñdirHabilidad.getId() == idBuscar) {
+		for (Dios diosAñdirHabilidad : dioses) {
+			if (diosAñdirHabilidad.getId() == idBuscar) {
 
-				System.out.println("Introduce el nombre del nuevo ataque de: " + heroeAñdirHabilidad.getNombre());
+				System.out.println("Introduce el nombre del nuevo ataque de: " + diosAñdirHabilidad.getNombre());
 				String nuevoAtaque = leer.readLine();
 
-				if (heroeAñdirHabilidad.enseñarHabilidad(nuevoAtaque)) {
-					System.out.println(heroeAñdirHabilidad.getNombre() + " ha aprendido " + nuevoAtaque);
+				if (diosAñdirHabilidad.enseñarHabilidad(nuevoAtaque)) {
+					System.out.println(diosAñdirHabilidad.getNombre() + " ha aprendido " + nuevoAtaque);
 				}
 			}
 		}
