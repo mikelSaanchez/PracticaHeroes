@@ -11,13 +11,13 @@ public class Dios {
 	private String[] habilidades = new String[5];
 	private int numHabilidades;
 
-	public void pedirDatos(ArrayList<Dios> heroes) {
+	public void pedirDatos(ArrayList<Dios> dioses) {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 
 		int idDios = -1;
 		do {
 			try {
-				System.out.println("Introduce el número del heroe que quiera añadir(1-100): ");
+				System.out.println("Introduce el número del dios que quiera añadir(1-100): ");
 				idDios = Integer.parseInt(leer.readLine());
 				if (idDios < 1 || idDios > 100)
 					System.out.println("El numero tiene que ser entre 1 y 100");
@@ -25,7 +25,7 @@ public class Dios {
 				System.out.println("Intoduce solo numeros");
 				idDios = -1;
 			}
-		} while (estaRepetido(heroes, idDios) || idDios < 1 || idDios > 100);
+		} while (estaRepetido(dioses, idDios) || idDios < 1 || idDios > 100);
 		System.out.println("Asignado el id " + idDios);
 		id = idDios;
 
@@ -34,7 +34,7 @@ public class Dios {
 
 			try {
 
-				System.out.print("Introduce el nombre del Heroe: ");
+				System.out.print("Introduce el nombre del Dios: ");
 				nombre = leer.readLine();
 
 				System.out.println("Introduce el linaje: ");
@@ -49,11 +49,11 @@ public class Dios {
 		}
 	}
 
-	private boolean estaRepetido(ArrayList<Dios> heroes, int idHeroe) {
+	private boolean estaRepetido(ArrayList<Dios> dioses, int idDios) {
 		// Preferir código legible frente a código ingenioso:
 		// Podriamos hacer un metodo mas complejo para comprobar que el ID esta repetido
-		for (int i = 0; i < (heroes.size()); i++) {
-			if (heroes.get(i).getId() == idHeroe) {
+		for (int i = 0; i < (dioses.size()); i++) {
+			if (dioses.get(i).getId() == idDios) {
 				System.err.println("El ID esta repetido. Introduce otro");
 				return true;
 			}

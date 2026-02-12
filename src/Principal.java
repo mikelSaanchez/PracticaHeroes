@@ -67,9 +67,9 @@ public class Principal {
 	// Argumentos de funciones:
 	// El nombre de los metodos dicen lo que hacen
 	private static void añadirNuevoDios(ArrayList<Dios> dioses) {
-		Dios nuevoHeroe = new Dios();
-		nuevoHeroe.pedirDatos(dioses);
-		dioses.add(nuevoHeroe);
+		Dios nuevoDios = new Dios();
+		nuevoDios.pedirDatos(dioses);
+		dioses.add(nuevoDios);
 	}
 
 	private static void mostrarDios(ArrayList<Dios> dioses) throws IOException {
@@ -77,9 +77,9 @@ public class Principal {
 		// Todas las variables tienen un valor.
 		int idBuscar = pedirID();
 		boolean enc = false;
-		for (Dios heroeAMostrar : dioses) {
-			if (heroeAMostrar.getId() == idBuscar) {
-				heroeAMostrar.mostrarDatos();
+		for (Dios diosAMostrar : dioses) {
+			if (diosAMostrar.getId() == idBuscar) {
+				diosAMostrar.mostrarDatos();
 
 				enc = true;
 			}
